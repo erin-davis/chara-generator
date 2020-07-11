@@ -5,20 +5,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Character Generator App</h1>
+      <p>This app will allow the generating of characters based on 3 factors. 1) Dungeons and Dragons 5E 2) Pathfinder? 3) Just a random Character!</p>
     </div>
   );
 }
