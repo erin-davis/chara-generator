@@ -1,12 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
+import WelcomePage from "./components/WelcomePage.js";
+import GeneratorUse from "./components/GeneratorUse.js";
+import FinalCharaSheet from "./components/FinalCharaSheet.js";
 
 function App() {
   return (
     <div className="App">
-      <h1>Character Generator App</h1>
-      <p>This app will allow the generating of characters based on 3 factors. 1) Dungeons and Dragons 5E 2) Pathfinder? 3) Just a random Character!</p>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <WelcomePage />
+          </Route>
+          <Route path="/use">
+            <GeneratorUse />
+          </Route>
+          <Route path="/final">
+            <FinalCharaSheet />
+          </Route>
+          <Route path="/"></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
