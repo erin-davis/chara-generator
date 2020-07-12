@@ -39,16 +39,19 @@ Cards from UseCard.js that will be in a carousel type thing
 */
 
 .container{
+  border: 1px solid blue;
   width:75%;
   height: auto;
   display: flex;
+  margin-top: 20px;
+  margin-left: 10%;
 }
 
 .card{
   border: 1px solid black;
   border-radius: 5px;
-  height: 300px;
-  width: 200px;
+  height: 280px;
+  width: 180px;
   background: #564D80;
   box-shadow: -1rem 0 3rem #29214B;
   transition: 0.5 ease-out;
@@ -56,8 +59,41 @@ Cards from UseCard.js that will be in a carousel type thing
   left: 0px;
 }
 
+/* .container .dnd{
+  transform: rotate(320deg);
+}
+
+.container .ran{
+  transform: rotate(30deg)
+} */
+
 .card:hover{
   margin-left: 10px;
   transform: translateY(-35px);
   transition: 0.5 ease-out;
+}
+
+.generator-form form{
+  display: flex;
+  border: 1px solid red;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 15%;
+}
+
+.generator-form form button{
+  width: 70px;
+  height: 35px;
+  text-decoration: none;
+  background-color: #564D80;
+  color: white;
+  border: 1px solid #44344F;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.generator-form form label{
+  font-size: 1.3rem;
+  border: 1px solid black;
+  margin: 5px;
 }
