@@ -6,7 +6,8 @@ const DNDGenerator = props =>{
   const [dndClass, setDndClass] = useState({})
   //const [dndValues, setDndValues] = useState([]);
   const [dndRes, setDndRes] = useState({});
-  const [apiValues, setApiValues] = useState([]);
+  const [apiValues, setApiValues] = useState(["/api/classes", "/api/languages", "/api/races"
+]);
 
   // const dndApiData = async () =>{
   //   const dndRes = await axios.get(`https://www.dnd5eapi.co/api`);
@@ -20,27 +21,21 @@ const DNDGenerator = props =>{
   // }, [])
 // ? `/api/classes` : `/api`
 
-  useEffect(() =>{
-    axios
-    .get(`https://www.dnd5eapi.co/api`)
-      .then(res =>{
-        setApiValues(Object.values(res.data));
-        console.log("this is the response", res.data);
-      })
-      .catch(err =>{
-        console.log("this is the error", err);
-      })
-    // axios
-    // .get(`https://www.dnd5eapi.co${apiValues.map(() =>{
-    //   return `${apiValues}`
-    // })}`)
-    //     .then(res =>{
-    //       console.log('this is from the second api call', res);
-    //     })
-    //     .catch(err =>{
-    //       console.log('from the second api call, i messed up like this: ', err);
-    //     })
-  }, []);
+  //two axios calls with the intention of the second one to be able to loop through and get all the information at once?
+  //if statement where if apiValues > 1, I do the second api call!!
+
+  // useEffect(() =>{
+  //   axios
+  //   .get(`https://www.dnd5eapi.co${apiKeys}`)
+  //     .then(res =>{
+  //       setApiValues(Object.values(res.data));
+  //       console.log("this is the response from axios 1", res.data);
+  //     })
+  //     .catch(err =>{
+  //       console.log("this is the error", err);
+  //     })
+  //   }, []);
+
 
   return null;
 }

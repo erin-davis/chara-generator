@@ -33,6 +33,50 @@
   }
 }
 
+/* From GeneratorUse that will style them to be the full bottom half of the screen */
+.generator-use{
+  display: flex;
+  justify-content: center;
+}
+.generator-use header{
+  font-size: 1.7rem;
+}
+.creation-use{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  height: 60%;
+}
+.creation-use section{
+  width: 50%;
+  padding: 1.5%;
+  text-align: center;
+  transition: 0.5 ease-out;
+  color: white
+}
+.creation-use section:hover{
+  transform: translate(0, -20%);
+  height: 125%;
+  transition: 0.5 ease-out;
+}
+.creation-use h2{
+  font-size: 2rem;
+}
+.creation-use p{
+  font-size: 1.4rem;
+}
+.NPC{
+  background-color: #F71735;
+}
+.PC{
+  background-color: #564D80;
+}
+
+
+/* After one is selected, it will either take them to the final page (NPC) or to the generator styling (PC) */
+
 
 /*
 Cards from UseCard.js that will be in a carousel type thing
@@ -96,4 +140,26 @@ Cards from UseCard.js that will be in a carousel type thing
   font-size: 1.3rem;
   border: 1px solid black;
   margin: 5px;
+}
+
+/* .links{
+  text-decoration: none;
+} */
+
+
+/* Styling Welcome Page */
+
+.landing-page button{
+  text-decoration: none;
+  width: 110px;
+  height: 65px;
+  background-color: #F71735;
+  color: white;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  padding: 8px;
+}
+.landing-page a{
+  text-decoration: none;
+  color: white;
 }

@@ -1,33 +1,19 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
-import WelcomePage from "./components/WelcomePage.js";
-import GeneratorUse from "./components/GeneratorUse.js";
-import PotentialCharaSheet from "./components/PotentialCharaSheet.js";
-import FinalCharaSheet from "./components/FinalCharaSheet.js";
+import Routes from "./components/Routes.js";
 import DNDGenerator from "./components/DND5EGeneratorAPI.js";
+import NameAPIGen from "./components/NameGeneratorAPI.js";
+
+//DNDGenerator is just ot check my API responses
+
+
 
 function App() {
   return (
     <div className="App">
+    <NameAPIGen />
     <DNDGenerator />
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <WelcomePage />
-          </Route>
-          <Route path="/use">
-            <GeneratorUse />
-          </Route>
-          <Route path="/final">
-            <FinalCharaSheet />
-          </Route>
-          <Route path="/selection">
-            <PotentialCharaSheet />
-          </Route>
-          <Route path="/"></Route>
-        </Switch>
-      </Router>
+    <Routes/>
     </div>
   );
 }
