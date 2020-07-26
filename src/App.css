@@ -1,3 +1,7 @@
+.App{
+  padding: 10px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -66,6 +70,7 @@
 }
 .creation-use p{
   font-size: 1.4rem;
+  visibility: hidden;
 }
 .NPC{
   background-color: #F71735;
@@ -73,6 +78,12 @@
 .PC{
   background-color: #564D80;
 }
+.active p{
+  visibility: visible;
+}
+/* .active-section p{
+  visibility: visible;
+} */
 
 
 /* After one is selected, it will either take them to the final page (NPC) or to the generator styling (PC) */

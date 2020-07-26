@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import axios from "axios";
 
-console.log(`${process.env.REACT_APP_NAME_API_KEY}`);
+//console.log(`${process.env.REACT_APP_NAME_API_KEY}`);
 
 const NameGenerator = props =>{
 
