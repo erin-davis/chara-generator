@@ -1,14 +1,16 @@
 import React from "react";
+import {racesPlaceHolderArr} from "../data/APIPlaceHolder.js";
 //url is /selection
 
 const PotentialCharaSheet = (props) =>{
 
-  console.log("from inside pcs", props);
+  console.log("from inside pcs", racesPlaceHolderArr);
 
   const genderSelection = e =>{
     e.preventDefault();
     //maybe toggle to add class toggled or somethign
   }
+
 
   return(
     <div>
@@ -26,6 +28,16 @@ const PotentialCharaSheet = (props) =>{
           <label htmlFor="dnd-class">Class</label>
           <select name="dnd-class" id="dnd-class">
             <option>Select a class!</option>
+            {/*racesPlaceHolderArr.forEach((dndClass) =>{
+              console.log(dndClass["name"]);
+              return (
+                <option>hello {dndClass["name"]}</option>
+              );
+            })*/}
+            <option>empty</option>
+            <option>empty</option>
+            <option>empty</option>
+            <option>empty</option>
           </select>
           <label>Race</label>
           <label>Level</label>

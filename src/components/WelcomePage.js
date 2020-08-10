@@ -13,7 +13,7 @@ const WelcomePage = () =>{
       </header>
       <section>
         <h2>Ready to get started?</h2>
-        <button><Link to="/use">Start</Link></button>
+        <Link to="/use"><button>Start</button></Link>
       </section>
     </div>
   )
