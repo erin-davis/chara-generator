@@ -1,9 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
+//url is /final
 
 const FinalCharaSheet = () =>{
-
-
   return(
     <div className="final-page">
       <h1>This is the final page! We did it!!! Here's how your Character looks :)</h1>

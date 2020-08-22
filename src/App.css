@@ -184,3 +184,14 @@ Cards from UseCard.js that will be in a carousel type thing
   height: 100px;
   background-color: #D3FCD5;
 }
+
+.selection-sheet Link, button{
+  width: 70px;
+  height: 35px;
+  text-decoration: none;
+  background-color: #564D80;
+  color: white;
+  border: 1px solid #44344F;
+  border-radius: 4px;
+  margin: 5px;
+}
