@@ -171,7 +171,7 @@ Cards from UseCard.js that will be in a carousel type thing
   padding: 8px;
 }
 .landing-page button:hover{
-  background-color:
+  background-color: #42050d;
 }
 .landing-page a{
   text-decoration: none;
@@ -191,7 +191,44 @@ Cards from UseCard.js that will be in a carousel type thing
   text-decoration: none;
   background-color: #564D80;
   color: white;
-  border: 1px solid #44344F;
   border-radius: 4px;
   margin: 5px;
+}
+
+form label{
+  color: green;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 25%;
+}
+
+.generator-form form section{
+  border: 2px solid blue;
+}
+
+.generator-form section label{
+  width: 30%;
+  border-radius: 0px;
+}
+
+.generator-form form{
+  display: flex;
+  justify-content: center;
+  border: none;
+  width: 50%;
+  margin-left: 24%;
+}
+
+form select{
+  width: 45%;
+  font-size: 1rem;
+}
+
+.chara-level{
+  width: 45%;
+  font-size: 1rem;
+}
+
+.align-sum{
+  display: none;
 }

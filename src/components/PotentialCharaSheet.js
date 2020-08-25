@@ -1,17 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import {racesPlaceHolderArr} from "../data/APIPlaceHolder.js";
+import {raceHolder, dndClassHolder, charaAlign} from "../data/APIPlaceHolder.js";
 //url is /selection
 
 const PotentialCharaSheet = (props) =>{
-  console.log("from inside pcs", racesPlaceHolderArr);
+  //console.log("from inside race Holder", raceHolder);
+  const [formChara, setFormChara] = useState({
+      'name': "",
+      'sex': "",
+      'class': "",
+      'level': 4,
+      'player_name': "",
+      'alignment': "",
+      'str': 1,
+      'int': 1,
+      'wis': 1,
+      'dex': 1,
+      'con': 1,
+      'cha': 1
+  })
 
-  const genderSelection = e =>{
-    e.preventDefault();
-    //maybe toggle to add class toggled or somethign
+  //this is use setFormChara and add the new shit
+  const handleChanges = e =>{
+    setFormChara({...formChara, [e.target.name]: e.target.value})
+    console.log(e.target.value);
   }
 
-  console.log("hello");
+  //this is for onSubmit and also uses setFormChara
+  const submitForm = e =>{
+    props.addNewChara(formChara);
+  }
+
+  console.log("form chara from pcs", formChara);
+
 
   return(
     <div className="selection-sheet">
@@ -23,39 +44,65 @@ const PotentialCharaSheet = (props) =>{
   </div>*/}
       <div className="generator-form options">
         <form>
-          <label>Sex, yes please!</label>
-          <button onClick={genderSelection}>Male</button>
-          <button onClick={genderSelection}>Female</button>
+          <label htmlFor="sex">Sex, yes please!</label>
+          <section>
+            <input type="radio" name="sex" id="female" value="f"/>
+            <label htmlFor="female">Female</label>
+            <input type="radio" name="sex" id="male" value="m"/>
+            <label htmlFor="male">Male</label>
+            <input type="radio" name="sex" id="random" value="r"/>  
+            <label htmlFor="random">Random</label>
+          </section>
           <label htmlFor="dnd-class">Class</label>
           <select name="dnd-class" id="dnd-class">
-            <option>Select a class!</option>
-            {/*racesPlaceHolderArr.map((dndClass) =>{
-              console.log(dndClass["name"]);
-              return (
-                <option>hello {dndClass["name"]}</option>
-              );
-            })*/}
+            <option value="null!!">Select a class!</option>
+            {dndClassHolder.map((dndClass)=>{
+              return(
+              <option>{dndClass.name}</option>
+              )
+            })}
+            <option value="random">Random</option>
           </select>
           <label htmlFor="dnd-race">Race</label>
             {/*Drop Down*/}
           <select name="dnd-race" id="dnd-race">
-            <option>Dragonborn</option>
-            <option>Dwarf</option>
-            <option>Elf</option>
-            <option>Gnome</option>
-            <option>Half-Elf</option>
-            <option>Half-Orc</option>
-            <option>Halfling</option>
-            <option>Human</option>
-            <option>Tiefling</option>
+            <option value="null!!">Select a Race!</option>
+            {raceHolder.map((dndRace)=>{
+              return(
+                <option value={dndRace.name}>{dndRace.name}</option>
+              )
+            })}
+            <option value="random">Random</option>
           </select>
-          <label>Level</label>
-            {/*number input max 20*/}
+          <label htmlFor="player-level">Level</label>
+            {/*number input max 20 with a default of 1*/}
+          <input
+          className="chara-level"
+          type="number"
+          id="player-level"
+          name="player-level"
+          min="1"
+          max="20"
+          />
           <label>Alignment</label>
             {/*Drop Down*/}
+          <select name="dnd-alignment" id="dnd-alignment">
+            <option value="null!!">Choose Your Alignment!</option>
+            {charaAlign.map((align) =>{
+              return(
+              <option value={align.name}>{align.name}</option>
+              )
+            })}
+            <option value="tba">Decide Later</option>
+            <option value="random">Random</option>
+          </select>
           <label>Explanation</label>
             {/*Div/paragraph with an explanation for each alignment*/}
-          <textarea />
+          {charaAlign.map((sum)=>{
+            return(
+            <p className="align-sum">{sum.summary}</p>
+            )
+          })}
           <Link to="/final"><button type="submit">Submit</button></Link>
           <button>Reset</button>
         </form>

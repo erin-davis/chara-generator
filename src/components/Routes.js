@@ -5,7 +5,7 @@ import GeneratorUse from "./GeneratorUse.js";
 import PotentialCharaSheet from "./PotentialCharaSheet.js";
 import FinalCharaSheet from "./FinalCharaSheet.js";
 
-function Routes(){
+function Routes(props){
   return (
     <Router>
       <Switch>
@@ -19,7 +19,10 @@ function Routes(){
           <FinalCharaSheet />
         </Route>
         <Route path="/selection">
-          <PotentialCharaSheet />
+          <PotentialCharaSheet
+          addNewChara={props.addNewChara}
+          
+          />
         </Route>
         <Route path="/">
         </Route>
