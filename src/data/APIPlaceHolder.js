@@ -162,3 +162,36 @@ export const dndClassHolder = [
       "summary": `Creatures not sapient enough to make decisions based on moral choices, but operating purely on instinct, are described as "unaligned".[16] Sharks are savage predators, for example, but they are not evil: they have no alignment.[16] The use of "unaligned" for creatures was introduced in the 4th edition, and retained in 5th edition.`
     }
   ]
+
+  export const abilityScoreHolder =[
+    {
+      "index": "cha",
+      "name": "CHA",
+      "url": "/api/ability-scores/cha"
+    },
+    {
+      "index": "con",
+      "name": "CON",
+      "url": "/api/ability-scores/con"
+    },
+    {
+      "index": "dex",
+      "name": "DEX",
+      "url": "/api/ability-scores/dex"
+    },
+    {
+      "index": "int",
+      "name": "INT",
+      "url": "/api/ability-scores/int"
+    },
+    {
+      "index": "str",
+      "name": "STR",
+      "url": "/api/ability-scores/str"
+    },
+    {
+      "index": "wis",
+      "name": "WIS",
+      "url": "/api/ability-scores/wis"
+    }
+  ]

@@ -1,5 +1,7 @@
 .App{
   padding: 10px;
+  width: 80%;
+  margin-left: 9.5%;
 }
 
 .App-logo {
@@ -149,7 +151,6 @@ Cards from UseCard.js that will be in a carousel type thing
 
 .generator-form form label{
   font-size: 1.3rem;
-  border: 1px solid black;
   margin: 5px;
 }
 
@@ -159,6 +160,22 @@ Cards from UseCard.js that will be in a carousel type thing
 
 
 /* Styling Welcome Page */
+.landing-page{
+  width: 80%;
+  margin-left: 9%;
+}
+
+.landing-page header h1{
+  font-size: 2.3rem;
+}
+
+.landing-page section p{
+  font-size: 1.3rem;
+}
+
+.landing-page section p a{
+  color: blueviolet;
+}
 
 .landing-page button{
   text-decoration: none;
@@ -203,7 +220,9 @@ form label{
 }
 
 .generator-form form section{
-  border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .generator-form section label{
@@ -231,4 +250,45 @@ form select{
 
 .align-sum{
   display: none;
+}
+
+/* Styling for AbilityScores.js */
+
+.ability-score{
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.random-dice{
+  width: 100px;
+  height: 100px;
+  background-color: slategray;
+  border: 1px solid black;
+}
+
+.bttn{
+  width: 30px;
+  height: 30px;
+  background-color: #f5f3e4;
+  border-radius: 4px;
+}
+
+.arrw{
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: .25rem;
+}
+
+.down{
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.up{
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }

@@ -8,31 +8,32 @@ const PotentialCharaSheet = (props) =>{
   const [formChara, setFormChara] = useState({
       'name': "",
       'sex': "",
-      'class': "",
-      'level': 4,
+      'dnd_class': "",
+      'player_level': "",
+      'dnd_race': "",
       'player_name': "",
-      'alignment': "",
-      'str': 1,
-      'int': 1,
-      'wis': 1,
-      'dex': 1,
-      'con': 1,
-      'cha': 1
+      'dnd_alignment': "",
+      'str': "",
+      'int': "",
+      'wis': "",
+      'dex': "",
+      'con': "",
+      'cha': ""
   })
 
   //this is use setFormChara and add the new shit
   const handleChanges = e =>{
     setFormChara({...formChara, [e.target.name]: e.target.value})
-    console.log(e.target.value);
+    //console.log(e.target.value);
   }
 
   //this is for onSubmit and also uses setFormChara
   const submitForm = e =>{
+    e.preventDefault();
     props.addNewChara(formChara);
   }
 
   console.log("form chara from pcs", formChara);
-
 
   return(
     <div className="selection-sheet">
@@ -43,18 +44,18 @@ const PotentialCharaSheet = (props) =>{
         <button>Fully Randomly Generate Character?</button>
   </div>*/}
       <div className="generator-form options">
-        <form>
+        <form onSubmit={submitForm}>
           <label htmlFor="sex">Sex, yes please!</label>
           <section>
-            <input type="radio" name="sex" id="female" value="f"/>
+            <input type="radio" name="sex" id="female" value="f" onChange={handleChanges}/>
             <label htmlFor="female">Female</label>
-            <input type="radio" name="sex" id="male" value="m"/>
+            <input type="radio" name="sex" id="male" value="m" onChange={handleChanges}/>
             <label htmlFor="male">Male</label>
-            <input type="radio" name="sex" id="random" value="r"/>  
+            <input type="radio" name="sex" id="random" value="r" onChange={handleChanges}/>  
             <label htmlFor="random">Random</label>
           </section>
-          <label htmlFor="dnd-class">Class</label>
-          <select name="dnd-class" id="dnd-class">
+          <label htmlFor="dnd_class">Class</label>
+          <select name="dnd_class" id="dnd_class" onChange={handleChanges}>
             <option value="null!!">Select a class!</option>
             {dndClassHolder.map((dndClass)=>{
               return(
@@ -63,9 +64,9 @@ const PotentialCharaSheet = (props) =>{
             })}
             <option value="random">Random</option>
           </select>
-          <label htmlFor="dnd-race">Race</label>
+          <label htmlFor="dnd_race">Race</label>
             {/*Drop Down*/}
-          <select name="dnd-race" id="dnd-race">
+          <select name="dnd_race" id="dnd_race" onChange={handleChanges}>
             <option value="null!!">Select a Race!</option>
             {raceHolder.map((dndRace)=>{
               return(
@@ -74,19 +75,20 @@ const PotentialCharaSheet = (props) =>{
             })}
             <option value="random">Random</option>
           </select>
-          <label htmlFor="player-level">Level</label>
+          <label htmlFor="player_level">Level</label>
             {/*number input max 20 with a default of 1*/}
           <input
           className="chara-level"
           type="number"
-          id="player-level"
-          name="player-level"
+          id="player_level"
+          name="player_level"
           min="1"
           max="20"
+          onChange={handleChanges}
           />
           <label>Alignment</label>
             {/*Drop Down*/}
-          <select name="dnd-alignment" id="dnd-alignment">
+          <select name="dnd_alignment" id="dnd_alignment" onChange={handleChanges}>
             <option value="null!!">Choose Your Alignment!</option>
             {charaAlign.map((align) =>{
               return(
@@ -103,7 +105,7 @@ const PotentialCharaSheet = (props) =>{
             <p className="align-sum">{sum.summary}</p>
             )
           })}
-          <Link to="/final"><button type="submit">Submit</button></Link>
+          <Link to="/final"><button type="submit">Next</button></Link>
           <button>Reset</button>
         </form>
       </div>
