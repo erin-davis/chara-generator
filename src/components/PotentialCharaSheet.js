@@ -4,7 +4,8 @@ import {raceHolder, dndClassHolder, charaAlign} from "../data/APIPlaceHolder.js"
 //url is /selection
 
 const PotentialCharaSheet = (props) =>{
-  //console.log("from inside race Holder", raceHolder);
+//this is the history thing for the submit button
+
   const [formChara, setFormChara] = useState({
       'name': "",
       'sex': "",
@@ -105,13 +106,14 @@ const PotentialCharaSheet = (props) =>{
             <p className="align-sum">{sum.summary}</p>
             )
           })}
-          <Link to="/final"><button type="submit">Next</button></Link>
-          <button>Reset</button>
+          <Link to="/final"><button type="submit" onSubmit={submitForm}>Next</button></Link>
+          <button type="reset">Reset</button>
         </form>
       </div>
       <Link to="/"><button>Start Over</button></Link>
     </div>
   )
 }
+
 
 export default PotentialCharaSheet;

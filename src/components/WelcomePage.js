@@ -13,13 +13,13 @@ const WelcomePage = (props) =>{
 
   const handleChanges = e =>{
     setPlayerName({...playerName, [e.target.name]: e.target.value});
-    console.log(e.target.value);
+    console.log(e.target.value, playerName);
   }
 
   const submitForm = e =>{
     e.preventDefault();
-    console.log("i should totally submit that huh");
-    props.addNewChara(playerName);
+    console.log('it has been submitted');
+    props.addNewChara(playerName.player_name);
   }
 
   return(
@@ -32,7 +32,7 @@ const WelcomePage = (props) =>{
         </section>
       <section>
         <h2>Ready to go?</h2>
-        <form onSubmit={submitForm}>
+        <form>
           <label htmlFor="player_name">Your Name: </label>
           <input
             type="text"
@@ -43,7 +43,7 @@ const WelcomePage = (props) =>{
             onChange={handleChanges}
           />
         </form>
-        <Link to="/use"><button>Start</button></Link>
+        <Link to="/use"><button type='submit'>Start</button></Link>
       </section>
     </div>
   )

@@ -3,65 +3,39 @@ import {Link} from "react-router-dom";
 //url is /final
 
 const FinalCharaSheet = (props) =>{
-  const [inputChara, setInputChara] = useState([
-    {
-      'id': 6,
-      'name': "Character Name",
-      'class': "Barbarian",
-      'level': "5",
-      'player_name': "Erin Davis",
-      'alignment': "Chaotic Neutral",
-      'str': "",
-      'int': '',
-      'wis': '',
-      'dex': '',
-      'con': '',
-      'cha': ''
-    }
-  ]);
 
-  const addNewChara = char =>{
-    const newChara = {
-      'id': Date.now(),
-      'name': char.name,
-      'dnd_class': char.class,
-      'player_level': char.level,
-      'player_name': char.player_name,
-      'dnd_alignment': char.alignment,
-      'dnd_race': "",
-      'str': '',
-      'int': "",
-      'wis': "",
-      'dex': '',
-      'con': '',
-      'cha': ""
-    }
-    setInputChara([newChara]);
-    console.log("from add new chara", char['player-level']);
-  };
 
-  console.log("this is input chara", inputChara.dnd_class);
-  console.log("addnew chara looks like this ", addNewChara)
 
-  console.log("form chara??", props.formChara);
+
+
+  // console.log("addnew chara looks like this ", props.addNewChara)
+
+  // console.log("form chara??", props.formChara);
+
+  console.log("this is inputchara", props.inputChara);
 
   return(
     <div className="final-page" >
       <h1>This is the final page! We did it!!! Here's how your Character looks :)</h1>
-      <section className="chara-attributes">
-        <h2>Name: {inputChara.name}</h2>
-        <h2>Class: {inputChara.dnd_class}</h2>
-        <h2>Level: {inputChara.player_level}</h2>
-        <h2>Player Name: {inputChara.player_name}</h2>
-        <h2>Alignment: {inputChara.alignment}</h2>
+      {props.inputChara.map(iChar =>{
+        return(
+      <section className="chara-attributes" key={iChar.id}>
+        <h2>Name: {iChar.name}</h2>
+        <h2>Sex: {iChar.sex}</h2>
+        <h2>Class: {iChar.dnd_class}</h2>
+        <h2>Level: {iChar.player_level}</h2>
+        <h2>Player Name: {iChar.player_name}</h2>
+        <h2>Alignment: {iChar.alignment}</h2>
       </section>
+        )
+      })}
       <section className="ability-mods">
-        <h2>STR: {inputChara.str}</h2>
-        <h2>INT: {inputChara.int}</h2>
-        <h2>WIS: {inputChara.wis}</h2>
-        <h2>DEX: {inputChara.dex}</h2>
-        <h2>CON: {inputChara.con}</h2>
-        <h2>CHA: {inputChara.cha}</h2>
+        <h2>STR: {props.inputChara.str}</h2>
+        <h2>INT: {props.inputChara.int}</h2>
+        <h2>WIS: {props.inputChara.wis}</h2>
+        <h2>DEX: {props.inputChara.dex}</h2>
+        <h2>CON: {props.inputChara.con}</h2>
+        <h2>CHA: {props.inputChara.cha}</h2>
       </section>
       <Link to="/"><button>Start Over</button></Link>
     </div>
