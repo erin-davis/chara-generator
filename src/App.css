@@ -43,6 +43,7 @@
 .generator-use{
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .generator-use header{
   font-size: 1.7rem;

@@ -20,10 +20,12 @@ const GeneratorUse = () =>{
 
   const descEnter = e =>{
     e.target.classList.toggle('active');
+    e.stopPropagation();
   }
 
   const descLeave = e =>{
     e.target.classList.toggle('active');
+    e.stopPropagation();
   }
 
 

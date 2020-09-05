@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render /use correctly 1`] = `
+<div
+  className="generator-use"
+>
+  <header>
+    <h1>
+      What do you want to create?
+    </h1>
+  </header>
+  <div
+    className="creation-use"
+  >
+    <section
+      className="NPC"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <h2>
+        Non-Player Character
+      </h2>
+      <p>
+        This will allow you to immediately generate a character
+      </p>
+    </section>
+    <section
+      className="PC"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <h2>
+        Player Character
+      </h2>
+      <p>
+        This will allow you to have a more indepth character creation experience! You can pick and choose data you want your character to keep.
+      </p>
+    </section>
+  </div>
+  <div
+    className="pick-use"
+  />
+</div>
+`;
