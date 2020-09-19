@@ -18,17 +18,7 @@ const GeneratorUse = () =>{
     history.push('/selection');
   }
 
-  const descEnter = e =>{
-    e.target.classList.toggle('active');
-    e.stopPropagation();
-  }
-
-  const descLeave = e =>{
-    e.target.classList.toggle('active');
-    e.stopPropagation();
-  }
-
-
+//new goal, in css, display none the p but then when its hovered, display inline block
 
   return (
     <div className="generator-use">
@@ -36,13 +26,13 @@ const GeneratorUse = () =>{
           <h1>What do you want to create?</h1>
         </header>
       <div className="creation-use">
-          <section className="NPC" onMouseEnter={descEnter} onMouseLeave={descLeave} onClick={toFinal}>
+          <section className="NPC" onClick={toFinal}>
             <h2>Non-Player Character</h2>
-            <p>This will allow you to immediately generate a character</p>
+            <p className="NPC-gen-desc">This will bring you to a fully randomly generated character!</p>
           </section>
-          <section className="PC" onMouseEnter={descEnter} onMouseLeave={descLeave} onClick={toSelect}>
+          <section className="PC" onClick={toSelect}>
             <h2>Player Character</h2>
-            <p>This will allow you to have a more indepth character creation experience! You can pick and choose data you want your character to keep.</p>
+            <p className="PC-gen-desc">This will allow you to have a more indepth character creation experience! You can pick and choose data you want your character to keep.</p>
           </section>
         </div>
         <div className="pick-use">

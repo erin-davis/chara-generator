@@ -293,3 +293,19 @@ form select{
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
+
+.NPC-gen-desc{
+  display: none;
+}
+
+.PC-gen-desc{
+  display: none;
+}
+
+.NPC-gen-desc:hover{
+  display: block;
+}
+
+.PC-gen-desc:hover{
+  display: inline-block;
+}
