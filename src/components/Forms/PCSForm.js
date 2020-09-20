@@ -1,9 +1,15 @@
 //this one takes the form from potentialCharaSheet.js and matches it with NoteForm.js
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {raceHolder, dndClassHolder, charaAlign} from "../../data/APIPlaceHolder.js";
 
 const PCSForm = props =>{
+  const history = useHistory();
+
+  const toFinal = () =>{
+    history.push('/final');
+  }
+
   const [formInputs, setFormInputs] = useState({
     player_name: "",
     character_name: "",
@@ -31,6 +37,7 @@ const PCSForm = props =>{
       dnd_race: "",
       chara_level: ""
     })
+    toFinal();
   };
 
   return(
@@ -95,7 +102,7 @@ const PCSForm = props =>{
             <p className="align-sum">{sum.summary}</p>
             )
           })}
-          <button type="submit" onSubmit={submitForm}>Next</button>
+          <button type="submit">Next</button>
           <button type="reset">Reset</button>
     </form>
   );
