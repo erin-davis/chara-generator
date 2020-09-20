@@ -10,6 +10,21 @@ import PCSInfo from './Forms/PCSInfo.js';
 
 
 function Routes(props){
+  //processing player name from WelcomePage
+  const [savedPlayerName, setSavedPlayerName] = useState([
+    {
+      player_name: ""
+    }
+  ])
+
+  const addNewPlayerName = play =>{
+    const newPlayerName = {
+      player_name: play.player_name
+    }
+    setSavedPlayerName([newPlayerName]);
+  }
+
+  //processing form info from PCSForm
   const [finalInput, setFinalInput] = useState([
     {
       id: "",
@@ -23,16 +38,6 @@ function Routes(props){
     }
   ]);
 
-  const [dndStats, setDndStats] = useState([
-    {
-      str: '',
-      int: "",
-      wis: "",
-      dex: '',
-      con: '',
-      cha: ""
-    }
-  ])
 
   const addNewChara = char =>{
     const newChara = {
@@ -48,8 +53,21 @@ function Routes(props){
     setFinalInput([newChara]);
   }
 
-  const addNewAttributes = attr =>{
-    const newAttributes ={
+  //processing dnd Stats that the player chooses
+
+  const [dndStats, setDndStats] = useState([
+    {
+      str: '',
+      int: "",
+      wis: "",
+      dex: '',
+      con: '',
+      cha: ""
+    }
+  ])
+
+  const addNewDndStats = attr =>{
+    const newDndStats ={
       str: attr.str,
       int: attr.int,
       wis: attr.wis,
@@ -57,26 +75,29 @@ function Routes(props){
       con: attr.con,
       cha: attr.cha
     }
-    setDndStats([newAttributes])
+    setDndStats([newDndStats])
   }
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <WelcomePage 
-          />
+          <WelcomePage addNewPlayerName={addNewPlayerName}/>
         </Route>
         <Route path="/use">
           <GeneratorUse />
         </Route>
         <Route path="/final">
-         <PCSInfo finalInput={finalInput} dndStats={dndStats}/>
+         <PCSInfo
+          finalInput={finalInput}
+          dndStats={dndStats}
+          savedPlayerName={savedPlayerName}
+         />
         </Route>
         <Route path="/ability-scores">
           <AbilityScores />
         </Route>
         <Route path="/selection">
-          <PCSForm addNewChara={addNewChara} addNewAttributes={addNewAttributes}/>
+          <PCSForm addNewChara={addNewChara} />
         </Route>
         <Route path="/">
         </Route>

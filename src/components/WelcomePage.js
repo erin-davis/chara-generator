@@ -1,25 +1,35 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 //url is /
 
 /*still have to come up with a way for the player_name to get pushed to the final form as well*/
 
 const WelcomePage = (props) =>{
+  //change this history to have it go to /use instead after i'm done testing the name form
+  const history = useHistory();
+
+  const toFinal = () =>{
+    history.push('/use');
+  }
 
   //onclick for the button will take them to GeneratorUse
   const [playerName, setPlayerName] = useState({
-    'player_name': ""
+    player_name: ""
   })
 
+
   const handleChanges = e =>{
-    setPlayerName({...playerName, [e.target.name]: e.target.value});
-    console.log(e.target.value, playerName);
+    setPlayerName({...playerName, [e.target.name]: [e.target.value]});
+    console.log(e.target.value, e.target.name);
   }
 
   const submitForm = e =>{
     e.preventDefault();
-    console.log('it has been submitted');
-    props.addNewChara(playerName.player_name);
+    props.addNewPlayerName(playerName);
+    setPlayerName({
+      player_name: ""
+    })
+    toFinal();
   }
 
   return(
@@ -32,7 +42,7 @@ const WelcomePage = (props) =>{
         </section>
       <section>
         <h2>Ready to go?</h2>
-        <form>
+        <form onSubmit={submitForm}>
           <label htmlFor="player_name">Your Name: </label>
           <input
             type="text"
@@ -43,7 +53,7 @@ const WelcomePage = (props) =>{
             onChange={handleChanges}
           />
         </form>
-        <Link to="/use"><button type='submit'>Start</button></Link>
+        <button type='submit' onClick={submitForm}>Start</button>
       </section>
     </div>
   )
