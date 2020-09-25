@@ -17,36 +17,66 @@ Of course, max number will always be 20
 //button w/ class random dice should maybe look like a dice?
 
 const AbilityScore = (props) =>{
-  let score = 1;
+  const [inputNumbers, setInputNumbers] = useState({
+    str: 0,
+    dex: 0,
+    con: 0,
+    int: 0,
+    cha: 0,
+    wis: 0
+  });
 
   const increaseScore = e =>{
-    score += 1;
-  }
+    e.preventDefault();
+    setInputNumbers({
+      ...inputNumbers,
+      [e.target.name]: inputNumbers[e.target.name] + 1
+    });
+  };
 
   const decreaseScore = e =>{
-    score -= 1;
+    e.preventDefault();
+    setInputNumbers({
+      ...inputNumbers,
+      [e.target.name]: inputNumbers[e.target.name] - 1
+    });
   }
+
+  //will have to come up with a way for
 
 
   return (
     <div className="ability-score">
+
       <header>
         <h2>Either randomly roll for your ability scores or use the calculator to input the scores you're looking for!</h2>
       </header>
-      <div className="score-blocks ">
+      <form>
         {ASH.map((ability)=>{
           return(
-          <article className="ash-ability" value={ability.index}>
-           <button className="bttn-down bttn" onClick={decreaseScore}>
-          <i class="arrw down"></i>
-           </button>
-          <span className={`${ability.index}_mod`}>{/*This will be mutable and*/score}</span>
-           <button className="bttn-up bttn" onClick={increaseScore}>
-          <i class="arrw up"></i>
+            <article className="ability-score">
+              <h2>{ability.name}</h2>
+              <button
+              className="bttn-down bttn arrw down"
+              name={ability.index}
+              onClick={decreaseScore}
+              >
+              </button>
+              <span className={`${ability.index}_mod`}><h3>{inputNumbers[ability.index]}
+              (Modifier: {Math.floor((inputNumbers[ability.index] - 10) / 2)})
+              </h3>
+              </span>
+              <button
+              className="bttn-up bttn arrw up"
+              name={ability.index}
+              onClick={increaseScore}
+              >
             </button>
-          </article>
+            </article>
           )
         })}
+      </form>
+      <div className="score-blocks ">
         <div className="score-dice">
           <button className="random-dice">Random</button>
         </div>

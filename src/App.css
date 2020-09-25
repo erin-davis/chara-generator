@@ -273,8 +273,10 @@ form select{
 .bttn{
   width: 30px;
   height: 30px;
-  background-color: #f5f3e4;
+  background-color: white;
   border-radius: 4px;
+  border: none;
+  outline: none;
 }
 
 .arrw{

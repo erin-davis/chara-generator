@@ -6,8 +6,8 @@ import {raceHolder, dndClassHolder, charaAlign} from "../../data/APIPlaceHolder.
 const PCSForm = props =>{
   const history = useHistory();
 
-  const toFinal = () =>{
-    history.push('/final');
+  const toAbScores = () =>{
+    history.push('/ability-scores');
   }
 
   const [formInputs, setFormInputs] = useState({
@@ -37,7 +37,7 @@ const PCSForm = props =>{
       dnd_race: "",
       chara_level: ""
     })
-    toFinal();
+    toAbScores();
   };
 
   return(
