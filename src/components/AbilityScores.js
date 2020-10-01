@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {abilityScoreHolder as ASH} from "../data/APIPlaceHolder";
 import {upArrow, downArrow} from "../tabler-icons/icons";
 
@@ -17,13 +17,19 @@ Of course, max number will always be 20
 //button w/ class random dice should maybe look like a dice?
 
 const AbilityScore = (props) =>{
+  const history = useHistory();
+
+  const toFinal = () =>{
+    history.push('/final');
+  }
+
   const [inputNumbers, setInputNumbers] = useState({
-    str: 0,
-    dex: 0,
-    con: 0,
-    int: 0,
-    cha: 0,
-    wis: 0
+    str: 10,
+    dex: 10,
+    con: 10,
+    int: 10,
+    cha: 10,
+    wis: 10
   });
 
   const increaseScore = e =>{
@@ -42,8 +48,20 @@ const AbilityScore = (props) =>{
     });
   }
 
-  //will have to come up with a way for
-
+  const submitForm = e =>{
+    e.preventDefault();
+    props.addNewDndStats(inputNumbers);
+    setInputNumbers({
+      str: 10,
+      dex: 10,
+      con: 10,
+      int: 10,
+      cha: 10,
+      wis: 10
+    });
+    console.log('the ability scores were submitted');
+    toFinal();
+  }
 
   return (
     <div className="ability-score">
@@ -51,7 +69,7 @@ const AbilityScore = (props) =>{
       <header>
         <h2>Either randomly roll for your ability scores or use the calculator to input the scores you're looking for!</h2>
       </header>
-      <form>
+      <form onSubmit={submitForm}>
         {ASH.map((ability)=>{
           return(
             <article className="ability-score">
@@ -62,7 +80,7 @@ const AbilityScore = (props) =>{
               onClick={decreaseScore}
               >
               </button>
-              <span className={`${ability.index}_mod`}><h3>{inputNumbers[ability.index]}
+              <span className={`${ability.index}_mod`}><h3>{inputNumbers[ability.index] }
               (Modifier: {Math.floor((inputNumbers[ability.index] - 10) / 2)})
               </h3>
               </span>
@@ -75,14 +93,14 @@ const AbilityScore = (props) =>{
             </article>
           )
         })}
+      <button className="as-bttn">Reset</button>
+      <button type="submit">Submit</button>
       </form>
       <div className="score-blocks ">
         <div className="score-dice">
           <button className="random-dice">Random</button>
         </div>
       </div>
-      <button className="as-bttn">Reset</button>
-      <Link to="/final"><button type="submit">Submit</button></Link>
     </div>
   );
 }

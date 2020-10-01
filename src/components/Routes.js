@@ -53,18 +53,18 @@ function Routes(props){
     setFinalInput([newChara]);
   }
 
-  //processing dnd Stats that the player chooses
+  //processing dnd Stats that the player chooses from AbilityScores.js
 
   const [dndStats, setDndStats] = useState([
     {
-      str: '',
+      str: "",
+      dex: "",
+      con: "",
       int: "",
-      wis: "",
-      dex: '',
-      con: '',
-      cha: ""
+      cha: "",
+      wis: ""
     }
-  ])
+  ]);
 
   const addNewDndStats = attr =>{
     const newDndStats ={
@@ -94,7 +94,9 @@ function Routes(props){
          />
         </Route>
         <Route path="/ability-scores">
-          <AbilityScores />
+          <AbilityScores 
+          addNewDndStats={addNewDndStats}
+          />
         </Route>
         <Route path="/selection">
           <PCSForm addNewChara={addNewChara} />
