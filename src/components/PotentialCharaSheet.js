@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import {fetchClassData} from "../api";
 import {raceHolder, dndClassHolder, charaAlign} from "../data/APIPlaceHolder.js";
 //url is /selection
 
@@ -21,6 +22,17 @@ const PotentialCharaSheet = (props) =>{
       'con': "",
       'cha': ""
   })
+
+  const [dndClassData, setDndClassData] = useState([])
+
+  useEffect(()=>{
+    const fetchClasses = async () =>{
+      setDndClassData(await fetchClassData());
+    }
+    fetchClasses();
+  }, []);
+  
+  console.log("this is the fetched data from pcs.js", dndClassData);
 
   //this is use setFormChara and add the new shit
   const handleChanges = e =>{

@@ -1,21 +1,26 @@
 import React from 'react';
 import './App.css';
 import Routes from "./components/Routes.js";
-import DNDGenerator from "./components/DND5EGeneratorAPI.js";
-import NameAPIGen from "./components/NameGeneratorAPI.js";
+import {fetchClassData, fetchLanguageData, fetchRaceData} from "./api";
 
 //DNDGenerator is just ot check my API responses
 
+export default class App extends React.Component{
+  constructor(){
+    super();
+  }
+  async componentDidMount(){
+    const fetchedClassData = await fetchClassData();
+    const fetchedLanguageData = await fetchLanguageData();
+    const fetchedRaceData = await fetchRaceData();
+    // console.log("from app.js component: ", fetchedData);
+  }
 
-
-function App() {
-  return (
-    <div className="App">
-    <NameAPIGen />
-    <DNDGenerator />
-    <Routes/>
-    </div>
-  );
+  render(){
+    return(
+      <div className="App">
+        <Routes />
+      </div>
+    )
+  }
 }
-
-export default App;

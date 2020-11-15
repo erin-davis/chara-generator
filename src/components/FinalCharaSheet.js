@@ -37,7 +37,7 @@ const FinalCharaSheet = (props) =>{
         <h2>CON: {props.inputChara.con}</h2>
         <h2>CHA: {props.inputChara.cha}</h2>
       </section>
-      <Link to="/"><button>Start Over</button></Link>
+      {/* needs to have something to send back to homepage <button>Start Over</button> */}
     </div>
   )
 }

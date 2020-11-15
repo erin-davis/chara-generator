@@ -80,7 +80,7 @@ const AbilityScore = (props) =>{
               onClick={decreaseScore}
               >
               </button>
-              <span className={`${ability.index}_mod`}><h3>{inputNumbers[ability.index] }
+              <span className={`${ability.index}_mod`} max='20'><h3>{inputNumbers[ability.index] }
               (Modifier: {Math.floor((inputNumbers[ability.index] - 10) / 2)})
               </h3>
               </span>
