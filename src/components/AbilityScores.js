@@ -46,6 +46,13 @@ const AbilityScore = (props) =>{
       ...inputNumbers,
       [e.target.name]: inputNumbers[e.target.name] - 1
     });
+    console.log('score down')
+  }
+
+  const randomDice = e =>{
+    // e.preventDefault();
+    console.log('all numbers should randomize');
+    
   }
 
   const submitForm = e =>{
@@ -59,13 +66,12 @@ const AbilityScore = (props) =>{
       cha: 10,
       wis: 10
     });
-    console.log('the ability scores were submitted');
     toFinal();
   }
 
+
   return (
     <div className="ability-score">
-
       <header>
         <h2>Either randomly roll for your ability scores or use the calculator to input the scores you're looking for!</h2>
       </header>
@@ -79,6 +85,7 @@ const AbilityScore = (props) =>{
               name={ability.index}
               onClick={decreaseScore}
               >
+                down
               </button>
               <span className={`${ability.index}_mod`} max='20'><h3>{inputNumbers[ability.index] }
               (Modifier: {Math.floor((inputNumbers[ability.index] - 10) / 2)})
@@ -89,16 +96,17 @@ const AbilityScore = (props) =>{
               name={ability.index}
               onClick={increaseScore}
               >
+                up
             </button>
             </article>
           )
         })}
-      <button className="as-bttn">Reset</button>
+      <button type="reset">Reset</button>
       <button type="submit">Submit</button>
       </form>
-      <div className="score-blocks ">
-        <div className="score-dice">
-          <button className="random-dice">Random</button>
+      <div className="random-dice-container">
+        <div className="random-dice" onClick={randomDice}>
+          <button>Roll to Randomize</button>
         </div>
       </div>
     </div>

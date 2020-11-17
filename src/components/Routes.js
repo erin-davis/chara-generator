@@ -7,6 +7,8 @@ import GenUse from "./comp/GenUse.js";
 import AbilityScores from "./AbilityScores.js";
 import DynamicSheet from './comp/DynamicSheet.js';
 import PCSInfo from './Forms/PCSInfo.js';
+import NameChoice from './comp/NameChoice.js';
+import FinalSheet from "./comp/FinalSheet.js";
 
 
 function Routes(props){
@@ -96,12 +98,14 @@ function Routes(props){
         <Route path="/ability-scores">
           <AbilityScores 
           addNewDndStats={addNewDndStats}
+          finalInput={finalInput}
           />
         </Route>
         <Route path="/selection">
           <DynamicSheet addNewChara={addNewChara} />
         </Route>
-        <Route path="/">
+        <Route path="/names">
+          <NameChoice />
         </Route>
       </Switch>
     </Router>

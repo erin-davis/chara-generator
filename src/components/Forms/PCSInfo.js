@@ -2,10 +2,10 @@
 import React from "react";
 
 const CharaInputMapped = props =>{
-  console.log(
-  "from in side pcs info this is finalInput", props.finalInput);
-  console.log("from inside pcsinfo this is dndStats", props.dndStats);
-  console.log("this is the player name!!!", props.savedPlayerName)
+  // console.log(
+  // "from in side pcs info this is finalInput", props.finalInput);
+  // console.log("from inside pcsinfo this is dndStats", props.dndStats);
+  // console.log("this is the player name!!!", props.savedPlayerName)
   //maybe over here try to do an if statement that finds something random
   // props.finalInput.map((stats, index) =>{
   //   console.log('this is something', stats.dnd_alignment);
@@ -18,7 +18,7 @@ const CharaInputMapped = props =>{
     <div className="chara-input">
         <section className="attributes-chara">
           <h2>Player Name: {props.savedPlayerName[0].player_name}</h2>
-          <h2>Name: {props.finalInput[0].character_name}</h2>
+          <h2>Character Name: {props.finalInput[0].character_name}</h2>
           <h2>Sex: {props.finalInput[0].sex}</h2>
           <h2>Race: {props.finalInput[0].dnd_race}</h2>
           <h2>Class: {props.finalInput[0].dnd_class}</h2>

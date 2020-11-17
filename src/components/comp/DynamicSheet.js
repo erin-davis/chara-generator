@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {useHistory} from "react-router-dom";
-import {fetchClassData, fetchRaceData} from "../../api";
+import {fetchClassData, fetchRaceData, fetchNameList} from "../../api";
 import {charaAlign} from "../../data/APIPlaceHolder";
 
 const DynamicSheet = props =>{
@@ -16,22 +16,28 @@ const DynamicSheet = props =>{
     dnd_class: "",
     dnd_alignment: "",
     sex: "",
-    dnd_race: ""
+    dnd_race: "",
+    chara_level: ""
   });
 
   const [dndClassData, setDndClassData] = useState([]);
   const [dndRaceData, setDndRaceData] = useState([]);
+  const [randomNameData, setRandomNameData] = useState({});
 
   useEffect(()=>{
-    const fetchClasses = async () =>{
+    const fetchVarious = async () =>{
       setDndClassData(await fetchClassData());
       setDndRaceData(await fetchRaceData());
+      setRandomNameData(await fetchNameList());
     }
-    fetchClasses();
+    fetchVarious();
   }, []);
+
+  // console.log(randomNameData)
 
   const handleChanges = e =>{
     setFormInputs({...formInputs, [e.target.name]: [e.target.value]});
+    console.log(formInputs.character_name)
   }
 
   //this is to randomize for a few of the inputs. It's not super DRY but it works for its purpose
@@ -72,6 +78,17 @@ const DynamicSheet = props =>{
     <div className="dynamic-sheet">
       <h2>Fill out this form to decide what you want your character to be like.</h2>
       <form onSubmit={submitForm}>
+        <section className="name-choice-container">
+          <label>Character Name</label>
+          <select name="character_name" id="character_name" onChange={handleChanges}>
+            <option value="">Pick a Name!</option>
+            {randomNameData.length > 0 ? randomNameData.map((name, index) =>{
+              return(
+              <option value={name} key={index}>{name}</option>
+              )
+            }) : null}
+          </select>
+        </section>
         <section className="form-sex">
           <label>Sex?</label>
           <article>
