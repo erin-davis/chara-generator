@@ -4,7 +4,7 @@ import WelcomePage from "./comp/WelcomePage.js";
 import GenUse from "./comp/GenUse.js";
 //import PotentialCharaSheet from "./PotentialCharaSheet.js";
 //import FinalCharaSheet from "./FinalCharaSheet.js";
-import AbilityScores from "./AbilityScores.js";
+import AbilityScores from "./comp/AbilityScores.js";
 import DynamicSheet from './comp/DynamicSheet.js';
 import PCSInfo from './Forms/PCSInfo.js';
 import NameChoice from './comp/NameChoice.js';

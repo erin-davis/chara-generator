@@ -37,7 +37,7 @@ const DynamicSheet = props =>{
 
   const handleChanges = e =>{
     setFormInputs({...formInputs, [e.target.name]: [e.target.value]});
-    console.log(formInputs.character_name)
+    console.log(e.target.name, e.target.value)
   }
 
   //this is to randomize for a few of the inputs. It's not super DRY but it works for its purpose
