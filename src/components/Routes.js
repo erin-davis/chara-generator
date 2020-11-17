@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import WelcomePage from "./WelcomePage.js";
-import GeneratorUse from "./GeneratorUse.js";
+import WelcomePage from "./comp/WelcomePage.js";
+import GenUse from "./comp/GenUse.js";
 //import PotentialCharaSheet from "./PotentialCharaSheet.js";
 //import FinalCharaSheet from "./FinalCharaSheet.js";
 import AbilityScores from "./AbilityScores.js";
-import PCSForm from './Forms/PCSForm.js';
+import DynamicSheet from './comp/DynamicSheet.js';
 import PCSInfo from './Forms/PCSInfo.js';
 
 
@@ -84,7 +84,7 @@ function Routes(props){
           <WelcomePage addNewPlayerName={addNewPlayerName}/>
         </Route>
         <Route path="/use">
-          <GeneratorUse />
+          <GenUse />
         </Route>
         <Route path="/final">
          <PCSInfo
@@ -99,7 +99,7 @@ function Routes(props){
           />
         </Route>
         <Route path="/selection">
-          <PCSForm addNewChara={addNewChara} />
+          <DynamicSheet addNewChara={addNewChara} />
         </Route>
         <Route path="/">
         </Route>

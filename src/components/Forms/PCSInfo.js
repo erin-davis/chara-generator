@@ -6,6 +6,14 @@ const CharaInputMapped = props =>{
   "from in side pcs info this is finalInput", props.finalInput);
   console.log("from inside pcsinfo this is dndStats", props.dndStats);
   console.log("this is the player name!!!", props.savedPlayerName)
+  //maybe over here try to do an if statement that finds something random
+  // props.finalInput.map((stats, index) =>{
+  //   console.log('this is something', stats.dnd_alignment);
+  //   stats.dnd_alignment = 'random' ? console.log('random alignment') : null;
+  //   stats.dnd_class = 'random' ? console.log('random class') : null;
+  //   stats.dnd_race = 'random' ? console.log('random race') : null;
+  // })
+
   return(
     <div className="chara-input">
         <section className="attributes-chara">
@@ -25,6 +33,7 @@ const CharaInputMapped = props =>{
           <h2>Constitution: {props.dndStats[0].con}</h2>
           <h2>Charisma: {props.dndStats[0].cha}</h2>
         </section>
+        <button>Start Over</button>
     </div>
   )
 }

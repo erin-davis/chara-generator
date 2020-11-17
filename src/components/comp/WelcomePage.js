@@ -1,22 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from 'react'
 import {Link, useHistory} from "react-router-dom";
-//url is /
 
-/*still have to come up with a way for the player_name to get pushed to the final form as well*/
+//url is base /
 
 const WelcomePage = (props) =>{
-  //change this history to have it go to /use instead after i'm done testing the name form
-  const history = useHistory();
-
-  const toFinal = () =>{
-    history.push('/use');
-  }
-
-  //onclick for the button will take them to GeneratorUse
   const [playerName, setPlayerName] = useState({
     player_name: ""
   })
 
+  const history = useHistory();
+
+  const toUse = () =>{
+    history.push('/use');
+  }
 
   const handleChanges = e =>{
     setPlayerName({...playerName, [e.target.name]: [e.target.value]});
@@ -29,18 +25,18 @@ const WelcomePage = (props) =>{
     setPlayerName({
       player_name: ""
     })
-    toFinal();
+    toUse();
   }
 
   return(
     <div className="landing-page">
-      <header>
+        <header>
         <h1>Welcome to an Interactive Character Generator</h1>
         </header>
         <section>
         <p>This character generator is build with both Dungeons and Dragons 5th Edition and Pathfinder in mind. It can also be used for making just random characters too as you desire. I can't stop you from doing what you want. If you want to the Github repository for this web application, {<a href="https://github.com/erin-davis/chara-generator" target="_blank">click here</a>}!</p>
         </section>
-      <section>
+        <section>
         <h2>Ready to go?</h2>
         <form onSubmit={submitForm}>
           <label htmlFor="player_name">Your Name: </label>
@@ -57,6 +53,7 @@ const WelcomePage = (props) =>{
       </section>
     </div>
   )
+
 }
 
 export default WelcomePage;

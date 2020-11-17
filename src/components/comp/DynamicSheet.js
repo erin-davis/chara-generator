@@ -1,13 +1,12 @@
-//this one takes the form from potentialCharaSheet.js and matches it with NoteForm.js
-import React, {useState, useEffect} from "react";
-import {Link, useHistory} from "react-router-dom";
-import {fetchClassData, fetchLanguageData, fetchRaceData} from "../../api";
-import {charaAlign} from "../../data/APIPlaceHolder"
+import React, { useState, useEffect } from 'react'
+import {useHistory} from "react-router-dom";
+import {fetchClassData, fetchRaceData} from "../../api";
+import {charaAlign} from "../../data/APIPlaceHolder";
 
-const PCSForm = props =>{
+const DynamicSheet = props =>{
   const history = useHistory();
 
-  const toAbScores = () =>{
+  const toScore = () =>{
     history.push('/ability-scores');
   }
 
@@ -17,17 +16,15 @@ const PCSForm = props =>{
     dnd_class: "",
     dnd_alignment: "",
     sex: "",
-    dnd_race: "",
+    dnd_race: ""
   });
 
   const [dndClassData, setDndClassData] = useState([]);
-  const [dndLanguageData, setDndLanguageData] = useState([]);
   const [dndRaceData, setDndRaceData] = useState([]);
 
   useEffect(()=>{
     const fetchClasses = async () =>{
       setDndClassData(await fetchClassData());
-      setDndLanguageData(await fetchLanguageData());
       setDndRaceData(await fetchRaceData());
     }
     fetchClasses();
@@ -35,12 +32,9 @@ const PCSForm = props =>{
 
   const handleChanges = e =>{
     setFormInputs({...formInputs, [e.target.name]: [e.target.value]});
-    // console.log("this is target value", e.target.value);
-    // console.log("this is target.name: ", e.target.name);
   }
 
-    //this is about to be the worst series of code don't @ me
-  //this is for the randomize button to work and then bring that data to the ending character sheet.
+  //this is to randomize for a few of the inputs. It's not super DRY but it works for its purpose
   if(formInputs.dnd_class == "random" || formInputs.dnd_alignment == "random" || formInputs.dnd_race == "random"){
     if(formInputs.dnd_class == 'random'){
       let max = dndClassData.length;
@@ -71,60 +65,46 @@ const PCSForm = props =>{
       dnd_race: "",
       chara_level: ""
     })
-    toAbScores();
+    toScore();
   };
 
-
   return(
-    <form onSubmit={submitForm}>
-      <label htmlFor="sex">Sex, yes please!</label>
-          <section>
+    <div className="dynamic-sheet">
+      <h2>Fill out this form to decide what you want your character to be like.</h2>
+      <form onSubmit={submitForm}>
+        <section className="form-sex">
+          <label>Sex?</label>
+          <article>
             <input type="radio" name="sex" id="female" value="Female" onChange={handleChanges}/>
             <label htmlFor="female">Female</label>
             <input type="radio" name="sex" id="male" value="Male" onChange={handleChanges}/>
             <label htmlFor="male">Male</label>
             <input type="radio" name="sex" id="other" value="Other" onChange={handleChanges}/>  
             <label htmlFor="other">Other</label>
-          </section>
-          <label htmlFor="dnd_class">Class</label>
-          <select name="dnd_class" id="dnd_class" onChange={handleChanges}>
-            <option value="">Select a Class!</option>
-            {
-            (dndClassData.map((dndClass, i) =>{
-              return (
-              <option value={dndClass.name} key={i}>{dndClass.name}</option>
-              )
-            }))}
-            <option value="random">Surprise Me!</option>
-          </select>
-          <label htmlFor="dnd_race">Race</label>
-          <select name="dnd_race" id="dnd_race" onChange={handleChanges}>
-            <option value="">Select a Race!</option>
-            {dndRaceData.map((dndRace, i) =>{
-              return(
-              <option value={dndRace.name} key={i}>{dndRace.name}</option>
-              )
-            })}
-            <option value="random">Surprise Me!</option>
-          </select>
-          <div className="dnd-languages-container">
-          <h3>Languages</h3>
-          {dndLanguageData.length > 0 ? (dndLanguageData.map((dndLang, i)=>{
-            return(
-              <span>
-              <input
-                type="checkbox"
-                id={dndLang.index}
-                name={dndLang.index}
-                value={dndLang.name}
-                />
-            <label htmlFor={dndLang.index}>{dndLang.name}</label>
-            </span>
+          </article>
+        </section>
+        <label htmlFor="dnd_class">Class</label>
+        <select name="dnd_class" id="dnd_class" onChange={handleChanges}>
+          <option value="">Select a Class!</option>
+          {
+          (dndClassData.map((dndClass, i) =>{
+            return (
+            <option value={dndClass.name} key={i}>{dndClass.name}</option>
             )
-          })) : <p>Loading...</p>
-        }
-          </div>
-          <label htmlFor="chara_level">Level</label>
+          }))}
+          <option value="random">Surprise Me!</option>
+        </select>
+        <label htmlFor="dnd_race">Race</label>
+        <select name="dnd_race" id="dnd_race" onChange={handleChanges}>
+          <option value="">Select a Race!</option>
+          {dndRaceData.map((dndRace, i) =>{
+            return(
+            <option value={dndRace.name} key={i}>{dndRace.name}</option>
+            )
+          })}
+          <option value="random">Surprise Me!</option>
+        </select>
+        <label htmlFor="chara_level">Level</label>
           <input
           className="chara-level"
           type="number"
@@ -138,24 +118,27 @@ const PCSForm = props =>{
           <select name="dnd_alignment" id="dnd_alignment" onChange={handleChanges}>
             <option value="">Choose Your Alignment!</option>
             {charaAlign.map((align) =>{
-
               return(
               <option value={align.name}>{align.name}</option>
               )
             })}
-            <option value="tba">Decide Later</option>
+            <option value="TBA">Decide Later</option>
             <option value="random">Surprise Me!</option>
           </select>
-          <label>Explanation</label>
+          <section className="alignment-text">
+          <h3>Explanation</h3>
           {charaAlign.map((sum)=>{
             return(
             <p className="align-sum">{sum.summary}</p>
             )
           })}
+          </section>
           <button type="submit">Next</button>
           <button type="reset">Reset</button>
-    </form>
-  );
-};
+      </form>
+    </div>
+  )
 
-export default PCSForm;
+}
+
+export default DynamicSheet;

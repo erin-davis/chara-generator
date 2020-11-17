@@ -14,14 +14,14 @@ export const fetchClassData = async () =>{
   }
 }
 //these work, i just want to limit the amount of api calls im making
-export const fetchLanguageData = async () =>{
-  try {
-    const res = await axios.get(`${dndAPIUrl}/api/languages`);
-    return res.data.results;
-  } catch (err) {
-    console.log('there is an error: ', err);
-  }
-}
+// export const fetchLanguageData = async () =>{
+//   try {
+//     const res = await axios.get(`${dndAPIUrl}/api/languages`);
+//     return res.data.results;
+//   } catch (err) {
+//     console.log('there is an error: ', err);
+//   }
+// }
 
 export const fetchRaceData = async () =>{
   try {
@@ -29,5 +29,24 @@ export const fetchRaceData = async () =>{
     return res.data.results;
   } catch (err) {
     console.log('there is an error: ', err);
+  }
+}
+
+export const fetchAbilityScoreData = async () =>{
+  try {
+    const res = await axios.get(`${dndAPIUrl}/api/ability-scores`);
+    return res.data.results;
+  } catch (err) {
+    console.log('there is an error: ', err);
+  }
+}
+
+export const fetchNameList = async () =>{
+  try {
+    // const res = await axios.get(`${nameAPIUrl}&number=6`);
+    // console.log('this is the name api response', res.data.names);
+    // return res.data.names;
+  } catch (err) {
+    console.log('there is an error in the name api', err);
   }
 }
