@@ -1,0 +1,58 @@
+.gen-use{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.gen-use header{
+  font-size: 1.7rem;
+}
+
+.creation-use{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  height: 60%;
+}
+
+.creation-use section{
+  width: 50%;
+  padding: 1.5%;
+  text-align: center;
+  transition: 0.5s ease-out;
+  color: white;
+  height: 100%;
+}
+
+.creation-use section:hover{
+  transform: translate(0, -20%);
+  height: 125%;
+}
+
+.creation-use h2{
+  font-size: 2rem;
+}
+
+.creation-use p{
+  font-size: 1.4rem;
+  visibility: hidden;
+}
+
+.NPC{
+  background-color: #F71735;
+}
+
+.PC{
+  background-color: #564D80;
+}
+
+.NPC:hover .NPC-gen-desc{
+  visibility: visible;
+  transition: 1s ease;
+}
+
+.PC:hover .PC-gen-desc{
+  visibility: visible;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Link, useHistory} from "react-router-dom";
+import "../styles/welcomePage.css";
 
 //url is base /
 
@@ -16,7 +17,6 @@ const WelcomePage = (props) =>{
 
   const handleChanges = e =>{
     setPlayerName({...playerName, [e.target.name]: [e.target.value]});
-    console.log(e.target.value, e.target.name);
   }
 
   const submitForm = e =>{

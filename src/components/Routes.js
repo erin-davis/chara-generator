@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import WelcomePage from "./comp/WelcomePage.js";
-import GenUse from "./comp/GenUse.js";
-//import PotentialCharaSheet from "./PotentialCharaSheet.js";
-//import FinalCharaSheet from "./FinalCharaSheet.js";
-import AbilityScores from "./comp/AbilityScores.js";
-import DynamicSheet from './comp/DynamicSheet.js';
-import PCSInfo from './Forms/PCSInfo.js';
-import NameChoice from './comp/NameChoice.js';
-import FinalSheet from "./comp/FinalSheet.js";
+import {BrowserRouter as Router, Switch, Route, useHistory} from "react-router-dom";
+import WelcomePage from "./WelcomePage.js";
+import GenUse from "./GenUse.js";
+import AbilityScores from "./AbilityScores.js";
+import DynamicSheet from './DynamicSheet.js';
+import FinalSheet from "./FinalSheet.js";
 
 
 function Routes(props){
+  const history = useHistory();
+
+  const toFinal = () =>{
+    history.push('/final');
+  }
+
+  //what im intending to do for random is basically make a function that randomizes everything and sets the finalInput to that. The function will have ot be passed by props GenUse so it can be called when clicked on randomize everything one
+
   //processing player name from WelcomePage
   const [savedPlayerName, setSavedPlayerName] = useState([
     {
@@ -47,6 +51,7 @@ function Routes(props){
       dnd_class: char.dnd_class,
       player_level: char.level,
       player_name: char.player_name,
+      character_name: char.character_name,
       dnd_alignment: char.dnd_alignment,
       sex: char.sex,
       dnd_race: char.dnd_race,
@@ -86,10 +91,10 @@ function Routes(props){
           <WelcomePage addNewPlayerName={addNewPlayerName}/>
         </Route>
         <Route path="/use">
-          <GenUse />
+          <GenUse addNewChara={addNewChara} addNewDndStats={addNewDndStats} />
         </Route>
         <Route path="/final">
-         <PCSInfo
+         <FinalSheet
           finalInput={finalInput}
           dndStats={dndStats}
           savedPlayerName={savedPlayerName}
@@ -103,9 +108,6 @@ function Routes(props){
         </Route>
         <Route path="/selection">
           <DynamicSheet addNewChara={addNewChara} />
-        </Route>
-        <Route path="/names">
-          <NameChoice />
         </Route>
       </Switch>
     </Router>
