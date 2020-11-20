@@ -62,7 +62,6 @@ const GenUse = (props) =>{
         fullForm[score.index] = Math.floor(Math.random() * (20 - 4) + 5);
       })
 
-
     randomizingFunction(dndRaceData, "dnd_race", 1);
     randomizingFunction(dndClassData, "dnd_class", 1);
     randomizingFunction(randomNameData, "character_name", 0);
@@ -81,7 +80,7 @@ const GenUse = (props) =>{
       <div className="creation-use">
         <section className="NPC" onClick={randomNameData.length > 0 ? randomizeForm : <p>Try again!</p>}>
           <h2>Non-Player Character</h2>
-          <p className="NPC-gen-desc">This will bring you to a fully randomly generated character! You won't be allowed to choose anything specific about this character. Use this one if you just want to make characters quickly!</p>
+          <p className="NPC-gen-desc">This will bring you to a fully randomly generated character! Use this one if you just want to make characters quickly!</p>
           <p className="NPC-gen-desc">(At present, this only works with level one characters)</p>
         </section>
         <section className="PC" onClick={toSelect}>

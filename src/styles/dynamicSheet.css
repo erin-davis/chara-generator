@@ -1,5 +1,4 @@
 .dynamic-sheet{
-  border: 1px solid pink;
   width: 100%;
   height: 100%;
 }
@@ -33,8 +32,9 @@
   width: 48%;
 }
 
-.dnd-align, .alignment-text{
+.dnd-align{
   width: 48%;
+  margin-left: auto;
 }
 
 select{
@@ -70,16 +70,13 @@ select:active{
   outline: green;
 }
 
-.align-sum-inactive{
-  display: none;
-}
 
 .dynamic-sheet .buttons{
   padding: 10px;
   margin: auto;
-  width: 30%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: row;
 }
 
@@ -92,5 +89,6 @@ select:active{
   background-color: #F71735;
   border-radius: 6px;
   padding: 8px;
+  margin: 5px;
 }
 

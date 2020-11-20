@@ -34,16 +34,10 @@ const DynamicSheet = props =>{
     fetchVarious();
   }, []);
 
-  // console.log(randomNameData)
-
   const handleChanges = e =>{
     setFormInputs({...formInputs, [e.target.name]: [e.target.value]});
-    console.log(e.target.name, e.target.value)
   }
 
-  const showSummary = e =>{
-
-  }
 
   //this is to randomize for a few of the inputs. It's not super DRY but it works for its purpose
   if(formInputs.dnd_class == "random" || formInputs.dnd_alignment == "random" || formInputs.dnd_race == "random"){
@@ -166,16 +160,6 @@ const DynamicSheet = props =>{
               <option value="TBA">Decide Later</option>
               <option value="random">Surprise Me!</option>
             </select>}
-          </section>
-          <section className="alignment-text">
-          <h3>Explanation</h3>
-          {charaAlign.map((sum)=>{
-            return(
-            <p id={sum.id} className={
-              sum.id == formInputs.dnd_alignment[0] ? `align-sum-active` : "align-sum-inactive"
-            }>{sum.summary}</p>
-            )
-          })}
           </section>
           <section className="buttons">
             <button type="reset">Reset</button>

@@ -1,7 +1,9 @@
 .landing-page{
   width: 80%;
+  height: 100%;
   margin: 30px auto;
   padding: 25px;
+  padding-bottom: 50px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 6px 5px 5px 0px #BABABA;
@@ -13,7 +15,25 @@
   font-size: 1.3rem;
 }
 .landing-page section p a{
-  color: blueviolet;
+  color: black;
+  text-decoration: underline;
+}
+.landing-page section h2{
+  font-size: 1.7rem;
+}
+.landing-page form{
+  padding: 10px 0;
+  margin: 10px 0;
+}
+.landing-page form label{
+  font-size: 1.1rem;
+  padding-right: 10px;
+}
+.landing-page form input[type=text]{
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 1.1rem;
 }
 .landing-page button{
   text-decoration: none;
@@ -31,4 +51,86 @@
 .landing-page a{
   text-decoration: none;
   color: white;
+}
+
+
+/* media queries */
+
+@media (max-width: 990px) {
+
+  .landing-page{
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .landing-page header h1{
+    font-size: 1.7rem;
+  }
+
+  .landing-page form label{
+    font-size: 1.2rem;
+  }
+
+  .landing-page form input[type=text]{
+    font-size: 1.2rem;
+  }
+  .landing-page button{
+    width: 30%;
+  }
+  .landing-page button:hover{
+    background-color: #821120;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .landing-page{
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .landing-page header{
+    height: 40px;
+    border-bottom: 1px solid blue;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(247, 23, 53, .3);
+  }
+  .landing-page header h1{
+    font-size: 1rem;
+    color: black;
+  }
+  .landing-page section{
+    margin: 0 5px;
+    width: 98%;
+  }
+  .landing-page section h2{
+    width: 50%;
+    margin: auto;
+  }
+  .landing-page form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .landing-page form label{
+    text-align: center;
+    font-size: 1.7rem;
+    padding-bottom: 5px;
+  }
+  .landing-page form input[type=text]{
+    font-size: 1.3rem;
+    width: 90%;
+    margin: auto;
+  }
+  .landing-page section button{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
 }
