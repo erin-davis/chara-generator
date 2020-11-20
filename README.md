@@ -1,3 +1,8 @@
+# Final Site
+
+Final site hosted using Heroku at https://dnd5e-character-generator.herokuapp.com
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -71,4 +76,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### APIs used
 
 https://www.dnd5eapi.co
-https://www.dnd5eapi.co
+https://www.behindthename.com/api/
