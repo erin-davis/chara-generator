@@ -7,9 +7,6 @@
 
 /* media queries */
 @media (max-width: 990px) {
-  /* body {
-    background-color: rgba(81, 147, 252, .3);
-  } */
   .App{
     padding: 20px 0;
     margin: 0;
@@ -19,9 +16,6 @@
 }
 
 @media (max-width: 600px) {
-  /* body {
-    background-color: rgba(74, 168, 67, .3);
-  } */
   .App{
     padding: 0;
   }

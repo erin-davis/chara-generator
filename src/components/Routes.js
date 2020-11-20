@@ -14,8 +14,6 @@ function Routes(props){
     history.push('/final');
   }
 
-  //what im intending to do for random is basically make a function that randomizes everything and sets the finalInput to that. The function will have ot be passed by props GenUse so it can be called when clicked on randomize everything one
-
   //processing player name from WelcomePage
   const [savedPlayerName, setSavedPlayerName] = useState([
     {
