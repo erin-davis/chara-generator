@@ -2,57 +2,72 @@
   border: 1px solid pink;
 }
 
-.ability-score form{
+.ability-score-container form{
   width: 80%;
-  border: 1px solid green;
+  border: 1px solid black;
   border-radius: 10px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   box-shadow: 6px 5px 5px 0px #BABABA;
+}
+.ability-score-container form h2{
+  width: 100%;
+  text-align: center;
 }
 
 .ability-scores{
   width: 30%;
-  border: 1px solid purple;
+  border: 1px solid #706892;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px auto;
+}
+
+.ability-scores h2{
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .ability-scores .scores{
   border-radius: 3px;
   background-color: #706892;
   color: #DCDCDC;
-  width: 150px;
+  width: 80%;
   height: 150px;
   margin: 0 auto 10px;
+  display: flex;
+  align-content: center;
 }
 
-.ability-scores div h3{
-  font-size: 2.5rem;
+.ability-scores .scores h3{
+  font-size: 3.5rem;
   padding: 0;
   margin: auto;
 }
 
-.ability-scores .arrow-buttons-container{
-  border: 1px solid green;
+.ability-scores .arrow-container{
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 90%;
-  margin: auto;
+  justify-content: center;
+  width: 30%;
+  margin: 3px auto;
+  padding: 3px 0;
 }
 
 .buttons-container{
   width: 50%;
-  margin: 10px auto;
-  border: 1px solid blue;
-  display: flex;
-  justify-content: center;
+  margin: 10px auto 15px;
+ display: flex;
+  justify-content: space-evenly;
 }
 
 .buttons-container button{
   text-decoration: none;
-  width: 110px;
+  width: 30%;
   height: 65px;
   background-color: #F71735;
   color: white;
@@ -62,25 +77,13 @@
 }
 
 .bttn{
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border-radius: 4px;
-  border: none;
+  width: 80%;
+  background-color: #e0e0e0;
+  text-decoration: none;
   outline: none;
-  margin: 5px;
+  border: 1px solid #9c9c9c;
+  border-radius: 5px;
 }
-.arrw{
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: .25rem;
-}
-.down{
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-.up{
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+.down-arrow, .up-arrow{
+  pointer-events: none;
 }

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom";
 import {abilityScoreHolder as ASH} from "../data/APIPlaceHolder";
+import {upArrow, downArrow} from "../tabler-icons/icons.js"
 import "../styles/abilityScores.css"
 
 const AbilityScore = props =>{
@@ -74,11 +75,9 @@ const AbilityScore = props =>{
   }
 
   return (
-    <div className="ability-score">
-      <header>
-        <h2>Either randomly roll for your ability scores or use the calculator to input the scores you're looking for!</h2>
-      </header>
+    <div className="ability-score-container">
       <form onSubmit={submitForm} onReset={resetForm}>
+      <h2>Input the ability scores you're looking for!</h2>
         {ASH.map((ability)=>{
           return(
             <div className="ability-scores">
@@ -87,20 +86,24 @@ const AbilityScore = props =>{
               ({Math.floor((inputNumbers[ability.index] - 10) / 2)})
               </h3>
               </div>
-              <div className="arrow-buttons-container">
+              <span className="arrow-container" >
               <button
-              className="bttn-down bttn arrw down"
-              name={ability.index}
-              onClick={decreaseScore}
-              >
-              </button>
-              <button
-              className="bttn-up bttn arrw up"
+              className="bttn"
               name={ability.index}
               onClick={increaseScore}
               >
+                <i className="up-arrow" alt={`Up Arrow to Increase ${ability.name}`}>{upArrow}</i>
             </button>
-            </div>
+            </span>
+            <span className="arrow-container">
+              <button
+              className="bttn"
+              name={ability.index}
+              onClick={decreaseScore}
+              >
+                <i className="down-arrow" alt={`Down Arrow to decrease ${ability.name}`}>{downArrow}</i>
+              </button>
+              </span>
             </div>
           )
         })}

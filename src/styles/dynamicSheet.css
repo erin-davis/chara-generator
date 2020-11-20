@@ -1,6 +1,16 @@
 .dynamic-sheet{
+  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 70%;
+}
+
+.dynamic-sheet form h2{
+  text-align: center;
+  width: 100%;
+  margin: 10px auto 0;
+  height: auto;
+  padding: 0;
+  font-size: 2rem;
 }
 
 .dynamic-sheet form{
@@ -24,15 +34,15 @@
 }
 
 /* name sex level, class race, align expla*/
-.name-choice-container, .form-sex, .chara-level{
-  width: 30%;
-}
-
-.dnd-class, .dnd-race{
+.name-choice-container, .form-sex{
   width: 48%;
 }
 
-.dnd-align{
+.chara-level, .dnd-class{
+  width: 48%;
+}
+
+.dnd-race, .dnd-align{
   width: 48%;
   margin-left: auto;
 }
@@ -41,7 +51,7 @@ select{
   outline: none;
   width: 80%;
   height: auto;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 2px;
   border: 1px solid lightgrey;
   border-radius: 5px 0 0 5px;
@@ -60,16 +70,15 @@ select:active{
 
 .dynamic-sheet input[type=number]{
   width: 80%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   border: 1px solid lightgrey;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
 }
 
 .dynamic-sheet input[type=radio]:hover{
   border: 1px solid pink;
   outline: green;
 }
-
 
 .dynamic-sheet .buttons{
   padding: 10px;
@@ -92,3 +101,40 @@ select:active{
   margin: 5px;
 }
 
+
+@media (max-width: 990px) {
+
+}
+
+@media (max-width: 600px) {
+  .dynamic-sheet form{
+    width: 90%;
+    margin: 10px auto;
+    border: none;
+    box-shadow: none;
+  }
+  .dynamic-sheet form h2{
+    font-size: 1.3rem;
+  }
+  .dynamic-sheet form section{
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    padding: 2px 0;
+  }
+  .dynamic-sheet form section label{
+    text-align: left;
+  }
+  .dynamic-sheet form section select{
+    width: 100%;
+  }
+  .dynamic-sheet form section input[type=number]{
+    width: 98%;
+  }
+  .dynamic-sheet form .buttons{
+    justify-content: space-around;
+  }
+  .dynamic-sheet form .buttons button{
+    width: 45%;
+  }
+}

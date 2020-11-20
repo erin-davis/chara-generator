@@ -87,8 +87,8 @@ const DynamicSheet = props =>{
 
   return(
     <div className="dynamic-sheet">
-      <h2>Fill out this form to decide what you want your character to be like.</h2>
       <form onSubmit={submitForm}  onReset={resetForm}>
+      <h2>Start your character creation here!</h2>
         <section className="name-choice-container">
           <label>Character Name</label>
           <select name="character_name" id="character_name" onChange={handleChanges}>
