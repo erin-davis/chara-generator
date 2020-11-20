@@ -1,0 +1,162 @@
+.final-chara-sheet .character-sheet{
+  border: 1px solid black;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 6px 5px 5px 0px #BABABA;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  box-shadow: 6px 5px 5px 0px #BABABA;
+}
+
+.final-chara-sheet .character-sheet h1{
+  width: 100%;
+  text-align: center;
+}
+
+
+.character-details{
+  width: 45%;
+  border: 1px solid #bfbfbf;
+  border-radius: 5px;
+}
+
+.character-details h3{
+  font-size: 1.6rem;
+}
+
+.character-details p{
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: rgba(242, 212, 75, .6);
+}
+
+.stats{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats .AC, .initiative{
+  border: 1px solid#bfbfbf;
+  border-radius: 5px;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats .AC{
+  margin-bottom: auto;
+}
+
+.stats .initiative{
+  margin-top: auto;
+}
+
+.stats h3{
+  font-size: 1.6rem;
+  margin-top: auto;
+  text-align: center;
+}
+
+.AC p, .initiative p{
+  font-size: 4.3rem;
+  margin: auto 0;
+  text-align: center;
+}
+
+.ability-stats{
+  width: 20%;
+}
+
+.ability-stats section{
+  border: 1px solid #bfbfbf;
+  margin: 2px auto;
+}
+
+.ability-stats section p{
+  font-size: 2rem;
+  margin: auto 0;
+  text-align: center;
+}
+
+.ability-stats section h3{
+  font-size: 1.5rem;
+  text-align: center;
+
+}
+
+.final-chara-sheet .buttons{
+  width: 100%;
+  margin: 15px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.final-chara-sheet button{
+  text-decoration: none;
+  width: 110px;
+  height: 65px;
+  background-color: #F71735;
+  color: white;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  padding: 8px;
+}
+
+/* media queries */
+@media (max-width: 990px) {
+  .final-chara-sheet .character-sheet{
+    width: 90%;
+ }
+ .character-sheet .character-details{
+   width: 40%;
+   order: 0;
+ }
+
+ .character-details p{
+   font-size: 1.6rem;
+ }
+ .character-sheet .stats{
+  width: 29%;
+  order: 1;
+ }
+ .character-sheet .ability-stats{
+  width: 29%;
+  order: 0;
+ }
+ .final-chara-sheet .buttons{
+   width: 25%;
+   order: 2;
+ }
+}
+
+@media (max-width: 600px) {
+  .final-chara-sheet .character-sheet{
+    width: 95%;
+    border: none;
+    box-shadow: none;
+  }
+  .final-chara-sheet .character-sheet h1{
+    font-size: 1.5rem;
+  }
+  .character-sheet .character-details{
+    width: 100%;
+    margin: 10px 0;
+  }
+  .character-sheet .stats{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .stats .AC, .stats .initiative{
+    margin: auto 0;
+  }
+  .character-sheet .ability-stats{
+    width: 100%;
+  }
+  .character-sheet .ability-stats section{
+    margin: 10px 0;
+  }
+}

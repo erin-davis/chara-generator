@@ -1,0 +1,125 @@
+.gen-use{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.gen-use header{
+  font-size: 1.7rem;
+}
+
+.creation-use{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  height: 60%;
+}
+
+.creation-use section{
+  width: 50%;
+  padding: 1.5%;
+  text-align: center;
+  transition: 0.5s ease-out;
+  color: white;
+  height: 100%;
+}
+
+.creation-use section:hover{
+  transform: translate(0, -20%);
+  height: 125%;
+}
+
+.creation-use h2{
+  font-size: 2rem;
+}
+
+.creation-use p{
+  font-size: 1.4rem;
+  visibility: hidden;
+}
+
+.NPC{
+  background-color: #F71735;
+}
+
+.PC{
+  background-color: #564D80;
+}
+
+.NPC:hover .NPC-gen-desc{
+  visibility: visible;
+  transition: 1s ease;
+}
+
+.PC:hover .PC-gen-desc{
+  visibility: visible;
+}
+
+/* media queries */
+
+@media (max-width: 990px) {
+  .creation-use{
+    flex-direction: column;
+    height: 70%;
+  }
+  .creation-use section{
+    width: 100%;
+    transition: none;
+    padding: 0;
+  }
+  .creation-use section h2{
+    text-align: left;
+    padding: 0 10px
+  }
+  .creation-use section:hover{
+    transform: none;
+    height: 100%;
+  }
+  .creation-use section p{
+    visibility: visible;
+    padding: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gen-use{
+    flex-direction: column;
+  }
+  .gen-use header{
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(247, 23, 53, .3);
+  }
+  .gen-use header h1{
+    font-size: 1rem;
+    text-align: center;
+  }
+  .creation-use{
+    width: 100%;
+    position: static;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .creation-use section{
+    width: 90%;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+
+  .NPC, .PC{
+    padding: 0;
+    margin: 5px auto;
+  }
+  .creation-use section h2{
+    font-size: 1rem;
+  }
+  .creation-use section p{
+    font-size: 1rem;
+  }
+}

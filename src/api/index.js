@@ -44,7 +44,6 @@ export const fetchAbilityScoreData = async () =>{
 export const fetchNameList = async () =>{
   try {
     const res = await axios.get(`${nameAPIUrl}&number=6`);
-    console.log('this is the name api response', res.data);
     return res.data.names;
   } catch (err) {
     console.log('there is an error in the name api', err);

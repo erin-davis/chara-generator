@@ -1,24 +1,11 @@
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom";
 import {abilityScoreHolder as ASH} from "../data/APIPlaceHolder";
-import {upArrow, downArrow} from "../tabler-icons/icons";
+import {upArrow, downArrow} from "../tabler-icons/icons.js"
+import "../styles/abilityScores.css"
 
-/*
-This will be math heavy since I have to do a new page dedicated entirely to the ability scores part.
-
-This will give the user the chance to either input their numbers using the [set point amount] where they subtract total points from that
-(with math done for if they're a higher level as well)
-
-There will also be a button that allows for a random dice roll that will put random numbers in each field (maybe not as strictly accounting for level since it's random)
-
-Of course, max number will always be 20
-*/
-
-//button w/ class random dice should maybe look like a dice?
-
-const AbilityScore = (props) =>{
+const AbilityScore = props =>{
   const history = useHistory();
-
   const toFinal = () =>{
     history.push('/final');
   }
@@ -38,6 +25,12 @@ const AbilityScore = (props) =>{
       ...inputNumbers,
       [e.target.name]: inputNumbers[e.target.name] + 1
     });
+    if(inputNumbers[e.target.name] > 19){
+      alert("Sorry, this is the highest you can go!");
+      setInputNumbers({
+        ...inputNumbers, [e.target.name]: 20
+      });
+    }
   };
 
   const decreaseScore = e =>{
@@ -46,14 +39,14 @@ const AbilityScore = (props) =>{
       ...inputNumbers,
       [e.target.name]: inputNumbers[e.target.name] - 1
     });
-    console.log('score down')
+    if(inputNumbers[e.target.name] < 6){
+      alert("Sorry, you can't go any lower than this!");
+      setInputNumbers({
+        ...inputNumbers, [e.target.name]: 5
+      });
+    }
   }
 
-  const randomDice = e =>{
-    // e.preventDefault();
-    console.log('all numbers should randomize');
-    
-  }
 
   const submitForm = e =>{
     e.preventDefault();
@@ -69,48 +62,59 @@ const AbilityScore = (props) =>{
     toFinal();
   }
 
+  const resetForm = e =>{
+    alert('The numbers will be reset now.');
+    setInputNumbers({
+      str: 10,
+      dex: 10,
+      con: 10,
+      int: 10,
+      cha: 10,
+      wis: 10
+    })
+  }
 
   return (
-    <div className="ability-score">
-      <header>
-        <h2>Either randomly roll for your ability scores or use the calculator to input the scores you're looking for!</h2>
-      </header>
-      <form onSubmit={submitForm}>
+    <div className="ability-score-container">
+      <form onSubmit={submitForm} onReset={resetForm}>
+      <h2>Input the ability scores you're looking for!</h2>
         {ASH.map((ability)=>{
           return(
-            <article className="ability-score">
+            <div className="ability-scores">
               <h2>{ability.name}</h2>
-              <button
-              className="bttn-down bttn arrw down"
-              name={ability.index}
-              onClick={decreaseScore}
-              >
-                down
-              </button>
-              <span className={`${ability.index}_mod`} max='20'><h3>{inputNumbers[ability.index] }
-              (Modifier: {Math.floor((inputNumbers[ability.index] - 10) / 2)})
+              <div className="scores" max='20'><h3>{inputNumbers[ability.index] }
+              ({Math.floor((inputNumbers[ability.index] - 10) / 2)})
               </h3>
-              </span>
+              </div>
+              <span className="arrow-container" >
               <button
-              className="bttn-up bttn arrw up"
+              className="bttn"
               name={ability.index}
               onClick={increaseScore}
               >
-                up
+                <i className="up-arrow" alt={`Up Arrow to Increase ${ability.name}`}>{upArrow}</i>
             </button>
-            </article>
+            </span>
+            <span className="arrow-container">
+              <button
+              className="bttn"
+              name={ability.index}
+              onClick={decreaseScore}
+              >
+                <i className="down-arrow" alt={`Down Arrow to decrease ${ability.name}`}>{downArrow}</i>
+              </button>
+              </span>
+            </div>
           )
         })}
-      <button type="reset">Reset</button>
-      <button type="submit">Submit</button>
-      </form>
-      <div className="random-dice-container">
-        <div className="random-dice" onClick={randomDice}>
-          <button>Roll to Randomize</button>
-        </div>
+      <div className='buttons-container'>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
       </div>
+      </form>
     </div>
   );
+
 }
 
 export default AbilityScore;

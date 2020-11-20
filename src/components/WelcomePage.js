@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Link, useHistory} from "react-router-dom";
+import "../styles/welcomePage.css";
 
 //url is base /
 
@@ -16,7 +17,6 @@ const WelcomePage = (props) =>{
 
   const handleChanges = e =>{
     setPlayerName({...playerName, [e.target.name]: [e.target.value]});
-    console.log(e.target.value, e.target.name);
   }
 
   const submitForm = e =>{
@@ -34,7 +34,7 @@ const WelcomePage = (props) =>{
         <h1>Welcome to an Interactive Character Generator</h1>
         </header>
         <section>
-        <p>This character generator is build with both Dungeons and Dragons 5th Edition and Pathfinder in mind. It can also be used for making just random characters too as you desire. I can't stop you from doing what you want. If you want to the Github repository for this web application, {<a href="https://github.com/erin-davis/chara-generator" target="_blank">click here</a>}!</p>
+        <p>This character generator is build with Dungeons and Dragons 5th Edition in mind. It can also be used for making random characters as well if you desire. I can't stop you from doing what you want. If you want to the Github repository for this web application, {<a href="https://github.com/erin-davis/chara-generator" target="_blank">click here</a>}!</p>
         </section>
         <section>
         <h2>Ready to go?</h2>
