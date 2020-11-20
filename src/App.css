@@ -1,63 +1,22 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* body{
+  background-color: #b0abab;
+} */
+.App{
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* media queries */
+@media (max-width: 990px) {
+  .App{
+    padding: 20px 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .App{
+    padding: 0;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-/*
-Cards from UseCard.js that will be in a carousel type thing
-*/
-
-.container{
-  width:75%;
-  height: auto;
-  display: flex;
-}
-
-.card{
-  border: 1px solid black;
-  border-radius: 5px;
-  height: 300px;
-  width: 200px;
-  background: #564D80;
-  box-shadow: -1rem 0 3rem #29214B;
-  transition: 0.5 ease-out;
-  position: relative;
-  left: 0px;
-}
-
-.card:hover{
-  margin-left: 10px;
-  transform: translateY(-35px);
-  transition: 0.5 ease-out;
 }

@@ -1,0 +1,141 @@
+.dynamic-sheet{
+  position: fixed;
+  width: 100%;
+  height: 70%;
+}
+
+.dynamic-sheet form h2{
+  text-align: center;
+  width: 100%;
+  margin: 10px auto 0;
+  height: auto;
+  padding: 0;
+  font-size: 2rem;
+}
+
+.dynamic-sheet form{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+  height: 100%;
+  margin: 25px auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 6px 5px 5px 0px #BABABA;
+}
+
+.dynamic-sheet form section{
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* name sex level, class race, align expla*/
+.name-choice-container, .form-sex{
+  width: 48%;
+}
+
+.chara-level, .dnd-class{
+  width: 48%;
+}
+
+.dnd-race, .dnd-align{
+  width: 48%;
+  margin-left: auto;
+}
+
+select{
+  outline: none;
+  width: 80%;
+  height: auto;
+  font-size: 1.2rem;
+  padding: 2px;
+  border: 1px solid lightgrey;
+  border-radius: 5px 0 0 5px;
+}
+
+select:active{
+  border-radius: 5px;
+  outline: none;
+}
+
+.dynamic-sheet form label{
+  color: black;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.dynamic-sheet input[type=number]{
+  width: 80%;
+  font-size: 1.2rem;
+  border: 1px solid lightgrey;
+  border-radius: 5px 0 0 5px;
+}
+
+.dynamic-sheet input[type=radio]:hover{
+  border: 1px solid pink;
+  outline: green;
+}
+
+.dynamic-sheet .buttons{
+  padding: 10px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.dynamic-sheet button{
+  border: none;
+  outline: none;
+  width: 110px;
+  height: 65px;
+  font-size: 1.3rem;
+  background-color: #F71735;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 5px;
+  color: white;
+}
+
+
+@media (max-width: 990px) {
+
+}
+
+@media (max-width: 600px) {
+  .dynamic-sheet form{
+    width: 90%;
+    margin: 10px auto;
+    border: none;
+    box-shadow: none;
+  }
+  .dynamic-sheet form h2{
+    font-size: 1.3rem;
+  }
+  .dynamic-sheet form section{
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    padding: 2px 0;
+  }
+  .dynamic-sheet form section label{
+    text-align: left;
+  }
+  .dynamic-sheet form section select{
+    width: 100%;
+  }
+  .dynamic-sheet form section input[type=number]{
+    width: 98%;
+  }
+  .dynamic-sheet form .buttons{
+    justify-content: space-around;
+  }
+  .dynamic-sheet form .buttons button{
+    width: 45%;
+  }
+}
