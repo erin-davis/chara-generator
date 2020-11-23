@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "52f56dee56cd47eee4dd2edb453cc059",
+    "revision": "b8288d735acd806bb9ad4b40866e9a4a",
     "url": "/chara-generator/index.html"
   },
   {
-    "revision": "c920a46cb808a5c580fb",
+    "revision": "e75e2b62b1ec2537dfeb",
     "url": "/chara-generator/static/css/main.8a59511b.chunk.css"
   },
   {
-    "revision": "809dfa3476e28c684732",
-    "url": "/chara-generator/static/js/2.991269de.chunk.js"
+    "revision": "88015c1e66eded5404b9",
+    "url": "/chara-generator/static/js/2.d3505e52.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/chara-generator/static/js/2.991269de.chunk.js.LICENSE.txt"
+    "url": "/chara-generator/static/js/2.d3505e52.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c920a46cb808a5c580fb",
-    "url": "/chara-generator/static/js/main.c9c27d1a.chunk.js"
+    "revision": "e75e2b62b1ec2537dfeb",
+    "url": "/chara-generator/static/js/main.0dda3c32.chunk.js"
   },
   {
     "revision": "11a82d3e7869c95c6fb4",
